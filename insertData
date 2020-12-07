@@ -1,0 +1,2 @@
+INSERT INTO Books (author, title, category, publishYear, isbn)
+VALUES ('Evan', 'My Work', 'Fiction', '2020', '112');
