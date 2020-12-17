@@ -1,6 +1,8 @@
 <?php
-require_once "login.php";
 
+
+function createTable(){
+require_once "login.php";
 $database = "inventory";
 
 $tableName = "parts";//replace database name with whatever you would like 
@@ -21,10 +23,16 @@ $sql = "CREATE TABLE parts (
     )";
     
     if ($conn->query($sql) === TRUE) {
-      echo "Table $tableName created successfully";
+      $message = "Table $tableName created successfully";
     } else {
-      echo "Error creating $tableName name: " . $conn->error;
+      $message = "Error creating $tableName name: " . $conn->error;
     }
 
 $conn->close();
+
+   echo $message;
+
+  }
+
+  createTable();
 ?>

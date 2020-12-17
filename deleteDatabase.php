@@ -1,4 +1,5 @@
 <?php
+function deleteDatabase(){
 require_once "login.php";
 
 $databaseName = "inventory";//replace database name with whatever you would like 
@@ -13,10 +14,15 @@ if ($conn->connect_error) {
 // Create database
 $sql = "DROP DATABASE IF EXISTS $databaseName;";
 if ($conn->query($sql) === TRUE) {
-  echo "$databaseName deleted successfully";
+  $message = " Database $databaseName deleted successfully";
 } else {
-  echo "Error: $databaseName doesn't exist: " . $conn->error;
+  $message = "Error: $databaseName doesn't exist: " . $conn->error;
 }
 
 $conn->close();
+echo $message;
+
+}
+
+deleteDatabase();
 ?>

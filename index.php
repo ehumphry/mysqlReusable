@@ -12,23 +12,64 @@
     <title>Database Menu</title>
 </head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#createDatabase").click(function(){
+    $.get("createDatabase.php", function(data){
+      $("#createDatabaseResponse").html(data);
+    });
+  });
+});
+
+$(document).ready(function(){
+  $("#createTable").click(function(){
+    $.get("createTable.php", function(data){
+      $("#createTableResponse").html(data);
+    });
+  });
+});
+
+$(document).ready(function(){
+  $("#deleteTable").click(function(){
+    $.get("deleteTable.php", function(data){
+      $("#deleteTableResponse").html(data);
+    });
+  });
+});
+
+$(document).ready(function(){
+  $("#deleteDatabase").click(function(){
+    $.get("deleteDatabase.php", function(data){
+      $("#deleteDatabaseResponse").html(data);
+    });
+  });
+});
+</script>
+
 <body>
     
         <ul>
-        <a href = "createDatabase.php">  <button> Create Database  </button> </a>
+          <button id ="createDatabase" name = "createDatabase.php"> Create Database  </button>
+          <div id = "createDatabaseResponse"> </div>
         </ul>
+            
         <ul>
-             <a href = "createTable.php"> <button >   Create Table </button> </a>
+               <button id ="createTable" name = "createTable.php" >   Create Table </button> 
+               <div id = "createTableResponse"> </div>
         </ul>
+            
 
         <ul>
-            <a href = "deleteTable.php">  <button> Delete Table </button> </a>
+           <button id = "deleteTable" name = "deleteTable.php"> Delete Table </button>
+           <div id = "deleteTableResponse"> </div> 
         </ul>
-        
+            
+
         <ul>
-            <a href = "deleteDatabase.php"><button>   Delete Database </button> </a> 
+             <button id = "deleteDatabase" name = "deleteDatabase.php">   Delete Database </button>
+             <div id = "deleteDatabaseResponse"> </div> 
         </ul>
-        
 
         <form action="insertData.php" method="post">
             Part Name: <input type="text" name="partName"><br>

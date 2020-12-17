@@ -1,4 +1,5 @@
 <?php
+function deleteTable(){
 require_once "login.php";
 
 $database = "inventory";
@@ -16,10 +17,15 @@ if ($conn->connect_error) {
 $sql = "DROP TABLE parts;";
     
     if ($conn->query($sql) === TRUE) {
-      echo "Table $tableName deleted successfully";
+      $message = "Table $tableName deleted successfully";
     } else {
-      echo "Error deleting $tableName name: " . $conn->error;
+      $message = "Error deleting table $tableName: " . $conn->error;
     }
 
 $conn->close();
+echo $message;
+
+}
+
+deleteTable();
 ?>

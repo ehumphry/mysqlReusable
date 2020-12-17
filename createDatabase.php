@@ -1,4 +1,6 @@
 <?php
+
+function createDatabase(){
 require_once "login.php";
 
 $databaseName = "inventory";
@@ -13,10 +15,19 @@ if ($conn->connect_error) {
 // Create database
 $sql = "CREATE DATABASE $databaseName";
 if ($conn->query($sql) === TRUE) {
-  echo "$databaseName created successfully";
+  $message = " Database $databaseName created successfully";
 } else {
-  echo "Error creating $databaseName: " . $conn->error;
+  $message = "Error creating $databaseName: " . $conn->error;
 }
 
 $conn->close();
+
+echo $message;
+
+}
+
+createDatabase()
+
+
+
 ?>
