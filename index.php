@@ -18,6 +18,9 @@ $(document).ready(function(){
   $("#createDatabase").click(function(){
     $.get("createDatabase.php", function(data){
       $("#createDatabaseResponse").html(data);
+      $("#deleteDatabaseResponse").html(" ");
+      $("#createTableResponse").html(" ");
+      $("#deleteTableResponse").html(" ");
     });
   });
 });
@@ -26,6 +29,9 @@ $(document).ready(function(){
   $("#createTable").click(function(){
     $.get("createTable.php", function(data){
       $("#createTableResponse").html(data);
+      $("#deleteTableResponse").html(" ");
+      $("#createDatabaseResponse").html(" ");
+      $("#deleteDatabaseResponse").html(" ");
     });
   });
 });
@@ -34,6 +40,9 @@ $(document).ready(function(){
   $("#deleteTable").click(function(){
     $.get("deleteTable.php", function(data){
       $("#deleteTableResponse").html(data);
+      $("#createTableResponse").html(" ");
+      $("#createDatabaseResponse").html(" ");
+      $("#deleteDatabaseResponse").html(" ");
     });
   });
 });
@@ -42,6 +51,10 @@ $(document).ready(function(){
   $("#deleteDatabase").click(function(){
     $.get("deleteDatabase.php", function(data){
       $("#deleteDatabaseResponse").html(data);
+      $("#createDatabaseResponse").html(" ");
+      $("#deleteTableResponse").html(" ");
+      $("#createTableResponse").html(" ");
+
     });
   });
 });
@@ -81,4 +94,5 @@ $(document).ready(function(){
 
 
 </body>
+
 </html>
