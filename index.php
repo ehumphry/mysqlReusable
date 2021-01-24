@@ -58,6 +58,17 @@ $(document).ready(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $("#showTable").click(function(){
+    $.get("showTable.php", function(data){
+      $("#showTableResponse").html(data);
+      $("#createTableResponse").html(" ");
+      $("#createDatabaseResponse").html(" ");
+      $("#deleteDatabaseResponse").html(" ");
+    });
+  });
+});
 </script>
 
 <body>
@@ -90,6 +101,11 @@ $(document).ready(function(){
             Quantity: <input type="text" name="partQuantity"><br>
             <input type="submit">
         </form>
+
+        <ul>
+             <button id = "showTable" name = "showTable.php">   Show Table </button>
+             <div id = "showTableResponse"> </div> 
+        </ul>
     
 
 

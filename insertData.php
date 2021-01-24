@@ -1,4 +1,5 @@
 <?php
+function insertData(){
 require_once "login.php";
 require "cleanSql.php";
 
@@ -13,6 +14,8 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+echo "made it here";
+
 $sql = "SELECT partName, partModel FROM parts WHERE partName = '$name_of_part' AND partModel = '$model_of_part'";
 $result = $conn->query($sql);
 
@@ -20,6 +23,7 @@ if ($result->num_rows > 0) {
     die("Part already exists");
 }
 else{
+    
     $sql = "INSERT INTO parts (partName, partModel, quantity)
     VALUES ('$name_of_part', '$model_of_part', $quantity_of_part)";
 
@@ -31,4 +35,7 @@ else{
 }
 
 $conn->close();
+}
+
+insertData();
 ?>
